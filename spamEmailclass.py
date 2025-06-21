@@ -20,21 +20,6 @@ st.title("📧 Spam Email Classifier")
 st.subheader("💬 Try it Yourself!")
 user_input = st.text_area("Enter an Email Message to classify: ")
 
-background_image_url = "https://unsplash.com/photos/a-black-background-with-a-blue-abstract-design-OfdOEdGYiuk"
-
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url("{background_image_url}");
-        background-attachment: fixed;
-        background-size: cover;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 #load and split train and test Data
 
 df = pd.read_csv("combined_spam_email_dataset.csv")
