@@ -1,12 +1,8 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report,accuracy_score,confusion_matrix
 from sklearn.feature_extraction.text import TfidfVectorizer
-import matplotlib.pyplot as plt
 
 
 #page configuration
@@ -20,21 +16,6 @@ st.set_page_config(
 st.title("📧 Spam Email Classifier")
 st.subheader("💬 Try it Yourself!")
 user_input = st.text_area("Enter an Email Message to classify: ")
-
-background_image_url = "https://unsplash.com/photos/a-black-background-with-a-blue-abstract-design-OfdOEdGYiuk"
-
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url("{background_image_url}");
-        background-attachment: fixed;
-        background-size: cover;
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 #load and split train and test Data
 
@@ -55,8 +36,6 @@ X_test_vec = vector.transform(X_test)
 model = LogisticRegression()
 model.fit(X_train_vec,y_train)
 y_pred = model.predict(X_test_vec)
-
-acc = accuracy_score(y_pred,y_test)
 
 #Predict on user input
 
